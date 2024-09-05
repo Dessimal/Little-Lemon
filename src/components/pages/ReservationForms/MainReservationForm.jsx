@@ -16,16 +16,15 @@ const MainReservationForm = () => {
     occasion: "",
     request: "",
   });
-  const [amount, setAmount] = useState(5000);
+  const [amount, setAmount] = useState(5000 * 100); // Default to 5000 Naira converted to Kobo
   const { user } = useKindeAuth();
   const navigate = useNavigate();
 
-  const email = user.email;
-  const name = user.given_name;
+  const email = user?.email || "";
+  const name = user?.given_name || "Guest";
+  const phone = user?.phone || "No phone number";
 
-  const phone = user.phone;
-
-  const publicKey = process.env.PAYSTACK_PUBLIC_KEY;
+  const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY;
 
   const componentProps = {
     email,
@@ -44,41 +43,14 @@ const MainReservationForm = () => {
     onClose: () => alert("Wait! You need this oil, don't go!!!!"),
   };
 
-  const handleProceedToPayment = async () => {
-    try {
-      const response = await fetch("/api/paystack", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: user.email,
-          amount: amount,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to initialize payment");
-      }
-
-      const data = await response.json();
-      console.log("Paystack Response Data:", data); // Log response data
-      window.location.href = data.authorizationUrl;
-    } catch (error) {
-      console.error("Error initiating payment:", error);
-    }
-  };
-
   const handleDinersCharge = () => {
-    setAmount(calculateAmount(reservation.diners));
+    setAmount(calculateAmount(reservation.diners) * 100); // Convert amount to kobo
   };
 
   const handleNext = (values) => {
     setReservation((prev) => ({ ...prev, ...values }));
     if (currentStep < 5) {
       setCurrentStep(currentStep + 1);
-    } else {
-      handleProceedToPayment();
     }
   };
 
@@ -120,7 +92,6 @@ const MainReservationForm = () => {
           <Step5
             reservation={reservation}
             handlePrevious={handlePrevious}
-            handleNext={handleNext}
             componentProps={componentProps}
           />
         );
