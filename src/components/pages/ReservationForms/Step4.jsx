@@ -4,9 +4,9 @@ import Heading from "../../Heading";
 import Button from "../../Button";
 import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
 
-const Step4 = ({ reservation, handleProceedToPayment }) => {
+const Step4 = ({ reservation, handlePrevious, handleProceedToPayment }) => {
   return (
-    <section>
+    <section className="section-container">
       <Heading>Your Payment Details</Heading>
 
       <p>
@@ -21,12 +21,12 @@ const Step4 = ({ reservation, handleProceedToPayment }) => {
         {calculateAmount(reservation.diners)}
       </p>
 
-      <div className="form-buttons-container">
-        <Button>
+      <div className="nav-buttons-container">
+        <Button onClick={handlePrevious}>
           <FaArrowLeft className="icon-left" />
           <span>Go Back</span>
         </Button>
-        <Button onClick={handleProceedToPayment}>
+        <Button onClick={() => handleProceedToPayment()}>
           <span>Proceed with payment</span>
           <FaLocationArrow className="icon" />
         </Button>
