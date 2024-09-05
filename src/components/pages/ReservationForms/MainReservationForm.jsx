@@ -20,13 +20,25 @@ const MainReservationForm = () => {
 
   const handleProceedToPayment = async () => {
     try {
-      const response = await apiService.initializePayment({
-        email: user.email,
-        amount,
+      const response = await fetch("/api/paystack", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user.email,
+          amount: amount,
+        }),
       });
-      window.location.href = response.data.authorizationUrl;
+
+      if (!response.ok) {
+        throw new Error("Failed to initialize payment");
+      }
+
+      const data = await response.json();
+      window.location.href = data.authorizationUrl;
     } catch (error) {
-      console.error("Error initiating payment;", error);
+      console.error("Error initiating payment:", error);
     }
   };
 
