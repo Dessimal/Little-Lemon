@@ -1,7 +1,7 @@
 import React from "react";
 import Heading from "../../Heading";
 import Button from "../../Button";
-import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaLocationArrow } from "react-icons/fa";
 import { calculateAmount } from "../../../helpers/calculation";
 import { useNavigate } from "react-router-dom";
 
@@ -30,8 +30,8 @@ const Step4 = ({ reservation, handlePrevious, handleNext }) => {
           <span>Go Back</span>
         </Button>
         <Button onClick={handleNext}>
-          <span>Proceed with payment</span>
-          <FaLocationArrow className="icon" />
+          <span>Next</span>
+          <FaArrowRight className="icon" />
         </Button>
       </div>
     </section>
