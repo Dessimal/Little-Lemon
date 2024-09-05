@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import { foodFour } from "../constants";
-import { FaArrowRight } from "react-icons/fa";
+import { FaLocationArrow } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
@@ -21,7 +21,7 @@ const Hero = () => {
           </p>
           <Button className="button" onClick={() => navigate("/reserve")}>
             <span>Reserve a Table</span>
-            <FaArrowRight className="icon" />
+            <FaLocationArrow className="icon" />
           </Button>
         </div>
         <div className="hero-image-container">

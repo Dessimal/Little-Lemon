@@ -1,51 +1,35 @@
+import React from "react";
+import { calculateAmount } from "../../../helpers/calculation";
 import Heading from "../../Heading";
+import Button from "../../Button";
+import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
 
-const Step4 = () => {
+const Step4 = ({ reservation, handleProceedToPayment }) => {
   return (
-    <section className="main-section">
-      <div>
-        <Heading>Booking Details</Heading>
-        <form action="">
-          <div>
-            <input
-              type="number"
-              name=""
-              id=""
-              placeholder="Card Number"
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              name=""
-              id=""
-              placeholder="First Name/Last Name"
-            />
-          </div>
+    <section>
+      <Heading>Your Payment Details</Heading>
 
-          <div className="flex-between">
-            <div>
-              <label htmlFor="ExpDate">Exp Date</label>
-              <input type="date" name="" id="" />
-            </div>
-            <div>
-              <label htmlFor="Cvv">CVV</label>
-              <input type="number" name="" id="" />
-            </div>
-          </div>
+      <p>
+        <strong>Number of diners selected:</strong>
+        {reservation.diners}
+      </p>
+      <p>
+        <strong>Amount per diner:</strong>N5000
+      </p>
+      <p>
+        <strong>Amount to pay:</strong>
+        {calculateAmount(reservation.diners)}
+      </p>
 
-          <div>
-            <label htmlFor="booking">
-              Send me booking confirmation via text
-            </label>
-            <input type="radio" name="Send me" id="" />
-            <label htmlFor="bookingEmail">
-              Send me booking confirmation via email
-            </label>
-            <input type="radio" name="" id="" />
-          </div>
-        </form>
+      <div className="form-buttons-container">
+        <Button>
+          <FaArrowLeft className="icon-left" />
+          <span>Go Back</span>
+        </Button>
+        <Button onClick={handleProceedToPayment}>
+          <span>Proceed with payment</span>
+          <FaLocationArrow className="icon" />
+        </Button>
       </div>
     </section>
   );

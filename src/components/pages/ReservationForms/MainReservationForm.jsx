@@ -5,9 +5,14 @@ import MultiStepBar from "./MultiStepBar";
 import ReviewReservation from "./ReviewReservation";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { calculateAmount } from "../../../helpers/calculation";
+
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 const MainReservationForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
+
+  const { user } = useKindeAuth();
 
   const navigate = useNavigate();
 
@@ -22,6 +27,27 @@ const MainReservationForm = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const [amount, setAmount] = useState(5000);
+
+  const handleDinersCharge = () => {
+    const calculatedAmount = calculateAmount(reservation.diners);
+    setAmount(calculatedAmount);
+  };
+
+  const email = user.email;
+
+  const handleProceedToPayment = async () => {
+    try {
+      const response = await apiService.initializePayment({
+        email,
+        amount,
+      });
+      window.location.href = response.data.authorizationUrl;
+    } catch (error) {
+      console.error("Error initiating payment;", error);
+    }
+  };
 
   const handleEdit = () => {
     setIsSubmitted(false);
@@ -69,7 +95,13 @@ const MainReservationForm = () => {
           />
         );
       case 4:
-        return <Step4 reservation={reservation} handleNext={handleNext} />;
+        return (
+          <Step4
+            reservation={reservation}
+            handleNext={handleNext}
+            handleProceedToPayment={handleProceedToPayment}
+          />
+        );
       default:
         return null;
     }
