@@ -11,8 +11,8 @@ const App = () => {
       <KindeProvider
         clientId="4ddde1c825134c638b4f0fc90eec9989"
         domain="https://littlelemon.kinde.com"
-        redirectUri="http://localhost:5173"
-        logoutUri="http://localhost:5173">
+        redirectUri="https://little-lemon-wheat.vercel.app"
+        logoutUri="https://little-lemon-wheat.vercel.app">
         <Nav />
         <Footer />
       </KindeProvider>
