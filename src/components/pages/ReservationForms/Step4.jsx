@@ -33,10 +33,6 @@ const Step4 = ({ reservation, handlePrevious, handleProceedToPayment }) => {
           <span>Proceed with payment</span>
           <FaLocationArrow className="icon" />
         </Button>
-        <Button onClick={() => navigate("/confirmation")}>
-          <span>Proceed with payment</span>
-          <FaLocationArrow className="icon" />
-        </Button>
       </div>
     </section>
   );

@@ -6,9 +6,11 @@ const PaymentNotification = () => {
   const navigate = useNavigate();
   return (
     <section className="section-container">
-      <h1>Success!</h1>
-      <p>Your table has been booked!</p>
-      <Button onClick={() => navigate("/")}>Go back to homepage</Button>
+      <div>
+        <h1>Success!</h1>
+        <p>Your table has been booked!</p>
+        <Button onClick={() => navigate("/")}>Go back to homepage</Button>
+      </div>
     </section>
   );
 };
