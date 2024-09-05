@@ -5,7 +5,7 @@ import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
 import { calculateAmount } from "../../../helpers/calculation";
 import { useNavigate } from "react-router-dom";
 
-const Step4 = ({ reservation, handlePrevious, handleProceedToPayment }) => {
+const Step4 = ({ reservation, handlePrevious, handleNext }) => {
   const amountToPay = calculateAmount(reservation.diners);
 
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const Step4 = ({ reservation, handlePrevious, handleProceedToPayment }) => {
           <FaArrowLeft className="icon-left" />
           <span>Go Back</span>
         </Button>
-        <Button onClick={handleProceedToPayment}>
+        <Button onClick={handleNext}>
           <span>Proceed with payment</span>
           <FaLocationArrow className="icon" />
         </Button>

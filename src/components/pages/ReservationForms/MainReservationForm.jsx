@@ -4,6 +4,8 @@ import MultiStepBar from "./MultiStepBar";
 import { useNavigate } from "react-router-dom";
 import { calculateAmount } from "../../../helpers/calculation";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import Step5 from "./Step5";
+import { PaystackButton } from "react-paystack";
 
 const MainReservationForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -17,6 +19,25 @@ const MainReservationForm = () => {
   const [amount, setAmount] = useState(5000);
   const { user } = useKindeAuth();
   const navigate = useNavigate();
+
+  const publicKey = process.env.PAYSTACK_PUBLIC_KEY;
+
+    const componentProps = {
+      email,
+      amount,
+      metadata: {
+        user.firstname,
+      },
+      publicKey,
+      text: "Buy Now",
+      onSuccess: ({ reference }) => {
+        alert(
+          `Your purchase was successful! Transaction reference: ${reference}`
+        );
+      },
+      onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+    };
+
 
   const handleProceedToPayment = async () => {
     try {
@@ -49,7 +70,7 @@ const MainReservationForm = () => {
 
   const handleNext = (values) => {
     setReservation((prev) => ({ ...prev, ...values }));
-    if (currentStep < 4) {
+    if (currentStep < 5) {
       setCurrentStep(currentStep + 1);
     } else {
       handleProceedToPayment();
@@ -86,7 +107,15 @@ const MainReservationForm = () => {
           <Step4
             reservation={reservation}
             handlePrevious={handlePrevious}
-            handleProceedToPayment={handleProceedToPayment}
+            handleNext={handleNext}
+          />
+        );
+      case 5:
+        return (
+          <Step5
+            reservation={reservation}
+            handlePrevious={handlePrevious}
+            handleNext={handleNext}
           />
         );
       default:
