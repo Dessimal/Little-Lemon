@@ -36,6 +36,7 @@ const MainReservationForm = () => {
       }
 
       const data = await response.json();
+      console.log("Paystack Response Data:", data); // Log response data
       window.location.href = data.authorizationUrl;
     } catch (error) {
       console.error("Error initiating payment:", error);
