@@ -24,7 +24,7 @@ const MainReservationForm = () => {
   const name = user?.given_name || "Guest";
   const phone = user?.phone || "No phone number";
 
-  const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY;
+  const publicKey = process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
 
   const componentProps = {
     email,
