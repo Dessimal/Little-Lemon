@@ -1,8 +1,8 @@
 import React from "react";
 import Heading from "../../Heading";
-import { useNavigate } from "react-router-dom";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Formik, Field, Form } from "formik";
 import Button from "../../Button";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Step3 = ({ handlePrevious, handleNext }) => {
   return (
@@ -11,23 +11,31 @@ const Step3 = ({ handlePrevious, handleNext }) => {
       <h2>
         Please fill the form below to add any special requests you might have.
       </h2>
-      <form className="form-inputs-container">
-        <textarea
-          className="form-field"
-          name=""
-          id=""
-          placeholder="Add a special request(optional)"></textarea>
-        <div className="nav-buttons-container">
-          <Button onClick={handlePrevious}>
-            <FaArrowLeft className="icon-left" />
-            <span>Back</span>
-          </Button>
-          <Button onClick={handleNext}>
-            <span>Next</span>
-            <FaArrowRight className="icon" />
-          </Button>
-        </div>
-      </form>
+      <Formik
+        initialValues={{ request: "" }}
+        onSubmit={(values) => handleNext(values)}>
+        <Form className="form-inputs-container">
+          <div>
+            <label htmlFor="request">Special Requests:</label>
+            <Field
+              as="textarea"
+              className="form-field"
+              id="request"
+              name="request"
+            />
+          </div>
+          <div className="nav-buttons-container">
+            <Button onClick={handlePrevious}>
+              <FaArrowLeft className="icon-left" />
+              <span>Back</span>
+            </Button>
+            <Button type="submit">
+              <span>Next</span>
+              <FaArrowRight className="icon" />
+            </Button>
+          </div>
+        </Form>
+      </Formik>
     </section>
   );
 };
