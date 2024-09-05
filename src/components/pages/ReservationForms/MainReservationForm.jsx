@@ -20,24 +20,29 @@ const MainReservationForm = () => {
   const { user } = useKindeAuth();
   const navigate = useNavigate();
 
+  const email = user.email;
+  const name = user.given_name;
+
+  const phone = user.phone;
+
   const publicKey = process.env.PAYSTACK_PUBLIC_KEY;
 
-    const componentProps = {
-      email,
-      amount,
-      metadata: {
-        user.firstname,
-      },
-      publicKey,
-      text: "Buy Now",
-      onSuccess: ({ reference }) => {
-        alert(
-          `Your purchase was successful! Transaction reference: ${reference}`
-        );
-      },
-      onClose: () => alert("Wait! You need this oil, don't go!!!!"),
-    };
-
+  const componentProps = {
+    email,
+    amount,
+    metadata: {
+      name,
+      phone,
+    },
+    publicKey,
+    text: "Buy Now",
+    onSuccess: ({ reference }) => {
+      alert(
+        `Your purchase was successful! Transaction reference: ${reference}`
+      );
+    },
+    onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+  };
 
   const handleProceedToPayment = async () => {
     try {
@@ -116,6 +121,7 @@ const MainReservationForm = () => {
             reservation={reservation}
             handlePrevious={handlePrevious}
             handleNext={handleNext}
+            componentProps={componentProps}
           />
         );
       default:
