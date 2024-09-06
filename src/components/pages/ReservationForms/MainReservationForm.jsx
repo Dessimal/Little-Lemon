@@ -15,6 +15,8 @@ const MainReservationForm = () => {
     occasion: "",
     request: "",
   });
+
+  const [amount, setAmount] = useState(500000);
   const { user } = useKindeAuth();
   const navigate = useNavigate();
 
@@ -23,8 +25,6 @@ const MainReservationForm = () => {
   const phone = user?.phone || "No phone number";
 
   const publicKey = "pk_test_8c3a3c9c32185d65f4bf23e83ea47cd69b50e39a";
-
-  const amount = calculateAmount(reservation.diner) * 100;
 
   const componentProps = {
     email,
@@ -53,6 +53,7 @@ const MainReservationForm = () => {
     if (currentStep < 5) {
       setCurrentStep(currentStep + 1);
     }
+    setAmount(calculateAmount(reservation.diners));
   };
 
   const handlePrevious = () => {
