@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { calculateAmount } from "../../../helpers/calculation";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import Step5 from "./Step5";
-import { PaystackButton } from "react-paystack";
 
 const MainReservationForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -24,7 +23,7 @@ const MainReservationForm = () => {
   const name = user?.given_name || "Guest";
   const phone = user?.phone || "No phone number";
 
-  const publicKey = pk_test_8c3a3c9c32185d65f4bf23e83ea47cd69b50e39a;
+  const publicKey = "pk_test_8c3a3c9c32185d65f4bf23e83ea47cd69b50e39a";
 
   const componentProps = {
     email,
