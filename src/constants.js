@@ -5,8 +5,9 @@ import foodTwo from "./assets/little-lemon-food-2.jpg";
 import foodThree from "./assets/little-lemon-food-3.jpg";
 import foodFour from "./assets/little-lemon-food-4.jpg";
 import logo from "./assets/little-lemon-logo.png";
+import dancing from "./assets/dancing.json";
 
-export { menu, closeMenu, foodFour, logo };
+export { menu, closeMenu, foodFour, logo, dancing };
 
 export const meals = [
   {
