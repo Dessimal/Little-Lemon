@@ -15,7 +15,6 @@ const MainReservationForm = () => {
     occasion: "",
     request: "",
   });
-  const [amount, setAmount] = useState(5000 * 100); // Default to 5000 Naira converted to Kobo
   const { user } = useKindeAuth();
   const navigate = useNavigate();
 
@@ -25,6 +24,8 @@ const MainReservationForm = () => {
 
   const publicKey = "pk_test_8c3a3c9c32185d65f4bf23e83ea47cd69b50e39a";
 
+  const amount = calculateAmount(reservation.diner) * 100;
+
   const componentProps = {
     email,
     amount,
@@ -33,18 +34,19 @@ const MainReservationForm = () => {
       phone,
     },
     publicKey,
-    text: "Buy Now",
+    text: "Proceed with Payment",
     onSuccess: ({ reference }) => {
       alert(
         `Your purchase was successful! Transaction reference: ${reference}`
       );
+      navigate("/confirmation");
     },
     onClose: () => alert("Wait! You need this oil, don't go!!!!"),
   };
 
-  const handleDinersCharge = () => {
-    setAmount(calculateAmount(reservation.diners) * 100); // Convert amount to kobo
-  };
+  // const handleDinersCharge = () => {
+  //   setAmount(calculateAmount(reservation.diners) * 100); // Convert amount to kobo
+  // };
 
   const handleNext = (values) => {
     setReservation((prev) => ({ ...prev, ...values }));
