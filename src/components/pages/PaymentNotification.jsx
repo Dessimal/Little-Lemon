@@ -7,10 +7,10 @@ import { dancing } from "../../constants";
 const PaymentNotification = () => {
   const navigate = useNavigate();
   return (
-    <section className="section-container">
-      <div>
+    <section>
+      <div className="section-container">
         <div>
-          <Lottie animationData={dancing} />
+          <Lottie className="lottie-animation" animationData={dancing} />
         </div>
         <h3>Success!</h3>
         <p>Your table has been booked!</p>

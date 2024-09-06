@@ -35,99 +35,104 @@ const Step1 = ({ handleNext }) => {
   });
 
   return (
-    <section className="form-section">
-      <div>
-        <Heading>Find a Table for Any Ocassion.</Heading>
+    <section className="section-container ">
+      <div className="form-section">
         <div>
-          <img src="" alt="" />
-          <img src="" alt="" />
+          <Heading>Find a Table for Any Ocassion.</Heading>
+          <div>
+            <img src="" alt="" />
+            <img src="" alt="" />
+          </div>
+          <Formik
+            initialValues={{
+              date: "",
+              time: "",
+              diners: "",
+              occasion: "", // Ensure this is an empty string
+            }}
+            validationSchema={SignupSchema}
+            onSubmit={(values) => {
+              alert(JSON.stringify(values, null, 2));
+              console.log(values);
+              handleNext(values);
+            }}>
+            <Form className="form-inputs-container">
+              <div>
+                <label htmlFor="date">Date:</label>
+                <Field
+                  className="form-field"
+                  type="date"
+                  id="date"
+                  name="date"
+                />
+                <ErrorMessage
+                  className="form-error-message"
+                  name="date"
+                  component="div"
+                />
+              </div>
+              <div>
+                <label htmlFor="times">Time:</label>
+                <Field as="select" className="form-field" id="time" name="time">
+                  <option value="" disabled>
+                    select time
+                  </option>
+                  {timeOptions.map((timeOption) => (
+                    <option key={timeOption} value={timeOption}>
+                      {timeOption}
+                    </option>
+                  ))}
+                </Field>
+                <ErrorMessage
+                  className="form-error-message"
+                  name="time"
+                  component="div"
+                />
+              </div>
+              <div>
+                <label htmlFor="time">No. of Diners:</label>
+                <Field
+                  as="select"
+                  className="form-field"
+                  id="diners"
+                  name="diners">
+                  <option value="" disabled>
+                    Select number of diners
+                  </option>
+                  {dinerOptions.map((dinerOption) => (
+                    <option key={dinerOption} value={dinerOption}>
+                      {dinerOption}
+                    </option>
+                  ))}
+                </Field>
+                <ErrorMessage
+                  className="form-error-message"
+                  name="diners"
+                  component="div"
+                />
+              </div>
+              <div>
+                <label htmlFor="time">Ocassion Type:</label>
+                <Field
+                  as="select"
+                  className="form-field"
+                  id="occasion"
+                  name="occasion">
+                  <option value="" disabled>
+                    Select occasion type
+                  </option>
+                  {occasionOptions.map((occasionOption) => (
+                    <option key={occasionOption} value={occasionOption}>
+                      {occasionOption}
+                    </option>
+                  ))}
+                </Field>
+                <ErrorMessage name="occasion" component="div" />
+              </div>
+              <Button type="submit">Next</Button>
+            </Form>
+          </Formik>
         </div>
-
-        <Formik
-          initialValues={{
-            date: "",
-            time: "",
-            diners: "",
-            occasion: "", // Ensure this is an empty string
-          }}
-          validationSchema={SignupSchema}
-          onSubmit={(values) => {
-            alert(JSON.stringify(values, null, 2));
-            console.log(values);
-            handleNext(values);
-          }}>
-          <Form className="form-inputs-container">
-            <div>
-              <label htmlFor="date">Date:</label>
-              <Field className="form-field" type="date" id="date" name="date" />
-              <ErrorMessage
-                className="form-error-message"
-                name="date"
-                component="div"
-              />
-            </div>
-            <div>
-              <label htmlFor="times">Time:</label>
-              <Field as="select" className="form-field" id="time" name="time">
-                <option value="" disabled>
-                  select time
-                </option>
-                {timeOptions.map((timeOption) => (
-                  <option key={timeOption} value={timeOption}>
-                    {timeOption}
-                  </option>
-                ))}
-              </Field>
-              <ErrorMessage
-                className="form-error-message"
-                name="time"
-                component="div"
-              />
-            </div>
-            <div>
-              <label htmlFor="time">No. of Diners:</label>
-              <Field
-                as="select"
-                className="form-field"
-                id="diners"
-                name="diners">
-                <option value="" disabled>
-                  Select number of diners
-                </option>
-                {dinerOptions.map((dinerOption) => (
-                  <option key={dinerOption} value={dinerOption}>
-                    {dinerOption}
-                  </option>
-                ))}
-              </Field>
-              <ErrorMessage
-                className="form-error-message"
-                name="diners"
-                component="div"
-              />
-            </div>
-            <div>
-              <label htmlFor="time">Ocassion Type:</label>
-              <Field
-                as="select"
-                className="form-field"
-                id="occasion"
-                name="occasion">
-                <option value="" disabled>
-                  Select occasion type
-                </option>
-                {occasionOptions.map((occasionOption) => (
-                  <option key={occasionOption} value={occasionOption}>
-                    {occasionOption}
-                  </option>
-                ))}
-              </Field>
-              <ErrorMessage name="occasion" component="div" />
-            </div>
-
-            <Button type="submit">Next</Button>
-          </Form>
-        </Formik>
       </div>
     </section>
   );

@@ -51,10 +51,11 @@ section {
   min-height: 80vh;
   overflow: hidden;
   max-width: 100%;
+  padding: 1.2rem;
 }
 @media screen and (min-width: 800px) {
   section {
-    padding: 0 1.2rem;
+    padding: 0;
   }
 }
 
@@ -111,16 +112,47 @@ section {
 }
 
 .auth-buttons-container {
+  padding: 0 1.2rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
   width: 100%;
   border: 1px solid red;
 }
 .auth-buttons-container button {
-  padding: 1rem 4rem;
-  font-size: 1.5rem;
+  padding: 0.5rem 4rem;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+@media screen and (min-width: 800px) {
+  .auth-section {
+    display: grid;
+    place-items: center;
+  }
+
+  .auth-section .container {
+    margin: 0 auto;
+    padding: 4rem 7rem;
+    display: flex;
+    flex-direction: colum;
+  }
+
+  .auth-buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    border: 1px solid red;
+  }
+  .auth-buttons-container button {
+    padding: 1rem 4rem;
+    font-size: 1.5rem;
+  }
 }
 
 .logo {
@@ -681,6 +713,14 @@ textarea {
   gap: 1rem;
   border: 1px solid red;
   width: 100%;
+}
+
+/* LOTTIE ANIMATION */
+
+.lottie-animation {
+  width: 200px;
+  height: 300px;
+  margin-bottom: 1.5rem;
 }
 
 .footer {

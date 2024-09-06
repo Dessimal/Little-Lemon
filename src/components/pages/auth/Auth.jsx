@@ -8,8 +8,8 @@ import { FaAddressCard, FaRegistered, FaSignInAlt } from "react-icons/fa";
 const Auth = () => {
   const { login, register } = useKindeAuth();
   return (
-    <section className="auth-section">
-      <div>
+    <section className="section-container">
+      <div className="auth-section">
         <Heading>Please Sign In or Sign Up To Reserve a Table</Heading>
         <div
           className="auth-buttons-container
