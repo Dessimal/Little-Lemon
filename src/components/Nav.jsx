@@ -35,65 +35,139 @@ const Nav = () => {
         </Link>
 
         <div>
-          <button onClick={handleShowMenu} className="menuButton">
-            <img src={showMenu ? menu : closeMenu} alt="menu" />
+          <div className={`${showMenu ? "show" : ""} navLink-container`}>
+            <ul className="navLinks">
+              <li className="cursor-pointer" onClick={handleShowMenu}>
+                <Link className="navLink" to="/">
+                  Home
+                </Link>
+              </li>
+              <li className="cursor-pointer" onClick={handleShowMenu}>
+                <Link className="navLink" to="/about">
+                  About
+                </Link>
+              </li>
+              <li className="cursor-pointer" onClick={handleShowMenu}>
+                <Link className="navLink" to="/blog">
+                  Blog
+                </Link>
+              </li>
+              <li className="cursor-pointer" onClick={handleShowMenu}>
+                <Link className="navLink" to="/reserve">
+                  Reserve Table
+                </Link>
+              </li>
+            </ul>
+            {isLoading && <div>...Loading user details</div>}
+            {!isLoading && !isAuthenticated && (
+              <div className="user-auth-container">
+                <button
+                  className="auth-button"
+                  type="button"
+                  onClick={() => login()}>
+                  Sign In
+                </button>
+                <button
+                  className="auth-button"
+                  type="button"
+                  onClick={() => register()}>
+                  Sign Up
+                </button>
+              </div>
+            )}
+            {!isLoading && isAuthenticated && (
+              <div className="user-auth-container">
+                <img className="user-avatar" src={user?.avatar} alt="user" />
+                <button
+                  className="auth-button"
+                  type="button"
+                  onClick={() => {
+                    logout();
+                  }}>
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+        <button onClick={() => handleShowMenu()} className="menuButton">
+          <img src={showMenu ? closeMenu : menu} alt="menu" />
+        </button>
+      </nav>
+
+      {/* <nav
+        className="mobile-navbar
+      ">
+        <div className="top-bar">
+          <Link to="/">
+            <img className="logo" src={logo} alt="" />
+          </Link>
+          {isLoading && <div>...Loading user details</div>}
+          {!isLoading && isAuthenticated && (
+            <div>
+              <img className="user-avatar" src={user?.avatar} alt="user" />
+            </div>
+          )}
+
+          <button onClick={() => handleShowMenu()} className="menuButton">
+            <img src={showMenu ? closeMenu : menu} alt="menu" />
           </button>
-          <ul className="navLinks">
-            <li className="cursor-pointer" onClick={handleShowMenu}>
-              <Link className="navLink" to="/">
-                Home
-              </Link>
-            </li>
-            <li className="cursor-pointer" onClick={handleShowMenu}>
-              <Link className="navLink" to="/about">
-                About
-              </Link>
-            </li>
-            <li className="cursor-pointer" onClick={handleShowMenu}>
-              <Link className="navLink" to="/blog">
-                Blog
-              </Link>
-            </li>
-            <li className="cursor-pointer" onClick={handleShowMenu}>
-              <Link className="navLink" to="/reserve">
-                Reserve Table
-              </Link>
-            </li>
-          </ul>
         </div>
 
-        {isLoading && <div>...Loading user details</div>}
-
-        {!isLoading && !isAuthenticated && (
-          <div className="user-auth-container">
-            <button
-              className="auth-button"
-              type="button"
-              onClick={() => login()}>
-              Sign In
-            </button>
-            <button
-              className="auth-button"
-              type="button"
-              onClick={() => register()}>
-              Sign Up
-            </button>
+        {menu ? (
+          <div className="bottom-bar">
+            {!isLoading && !isAuthenticated && (
+              <div className="">
+                <button className="" type="button" onClick={() => login()}>
+                  Sign In
+                </button>
+                <button
+                  className="mobile-auth-button"
+                  type="button"
+                  onClick={() => register()}>
+                  Sign Up
+                </button>
+              </div>
+            )}
+            {!isLoading && isAuthenticated && (
+              <div className="mobile-user-auth-container">
+                <button
+                  className="mobile-auth-button"
+                  type="button"
+                  onClick={() => {
+                    logout();
+                  }}>
+                  Logout
+                </button>
+              </div>
+            )}
+            <div>
+              <ul className="">
+                <li className="" onClick={handleShowMenu}>
+                  <Link className="" to="/" onClick={handleShowMenu}>
+                    Home
+                  </Link>
+                </li>
+                <li className="cursor-pointer" onClick={handleShowMenu}>
+                  <Link className="mobile-navLink" to="/about">
+                    About
+                  </Link>
+                </li>
+                <li className="cursor-pointer" onClick={handleShowMenu}>
+                  <Link className="mobile-navLink" to="/blog">
+                    Blog
+                  </Link>
+                </li>
+                <li className="cursor-pointer" onClick={handleShowMenu}>
+                  <Link className="mobile-navLink" to="/reserve">
+                    Reserve Table
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
-        )}
-        {!isLoading && isAuthenticated && (
-          <div className="user-auth-container">
-            <img className="user-avatar" src={user?.avatar} alt="user" />
-            <button
-              className="auth-button"
-              type="button"
-              onClick={() => {
-                logout();
-              }}>
-              Logout
-            </button>
-          </div>
-        )}
-      </nav>
+        ) : null}
+      </nav> */}
 
       <Routes>
         <Route path="/" element={<Home />} />

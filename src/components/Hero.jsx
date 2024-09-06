@@ -15,7 +15,7 @@ const Hero = () => {
             <h1 className="hero-main-heading">Little Lemon</h1>
             <h3 className="hero-subheading">Chicago</h3>
           </div>
-          <p>
+          <p className="intro">
             We are a family owned Mediterranean restaurant focused on serving
             traditional dished but with a modern twist.
           </p>

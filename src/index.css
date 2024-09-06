@@ -49,6 +49,13 @@ h4 {
 
 section {
   min-height: 80vh;
+  overflow: hidden;
+  max-width: 100%;
+}
+@media screen and (min-width: 800px) {
+  section {
+    padding: 0 1.2rem;
+  }
 }
 
 /* ========utility classes======== */
@@ -459,7 +466,7 @@ textarea {
   height: 100%;
 }
 
-@media screen and (min-width: 745px) {
+@media screen and (min-width: 800px) {
   .menuButton {
     display: none;
   }
@@ -476,31 +483,34 @@ textarea {
   margin: 0 auto;
 }
 
-.navLinks {
+.navLink-container {
   position: absolute;
-  top: 110%;
-  right: -100%;
+  transition: all 0.5s ease-in;
+  width: 100%;
+  height: 60vh;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: black;
+  opacity: 0.9;
+
+  gap: 0.5rem;
+  padding: 2rem;
+}
+
+.navLinks {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  padding: 10px;
-  transition: all 0.5s ease-in;
+  gap: 0.5rem;
+  padding-bottom: 4rem;
 }
 
-.show.navLinks {
-  right: 0;
-}
-
-@media screen and (min-width: 800px) {
-  .navLinks {
-    position: static;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4rem;
-  }
+.show.navLink-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 .navLinks li {
@@ -508,7 +518,7 @@ textarea {
 }
 
 .navLink {
-  color: var(--primary-color);
+  color: white;
   text-decoration: none;
 }
 
@@ -530,9 +540,13 @@ textarea {
 
 .user-auth-container {
   display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.user-auth-container button {
+  color: white;
 }
 
 .user-avatar {
@@ -542,16 +556,123 @@ textarea {
   height: 50px;
 }
 
-.hero {
-  background-color: green;
-  padding: 2% 15%;
-  height: 80vh;
-  border: 1px solid red;
+/* ======Media query for Navbar starts ====== */
+
+@media screen and (min-width: 800px) {
+  .navbar {
+    display: flex;
+  }
+
+  .navLink-container,
+  .show.navLink-container {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+    padding: 0;
+    height: 100%;
+    border: 1px solid green;
+  }
+
+  .navLinks {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid red;
+    height: auto;
+    width: auto;
+    padding: 0;
+    gap: 3rem;
+  }
+
+  .navLink {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .navLink:hover {
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    background-color: var(--accent-color);
+    font-weight: bold;
+    transition: var(--transition);
+  }
+
+  .auth-button {
+    background-color: transparent;
+    border: transparent;
+    color: var(--primary-color);
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .user-auth-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 2rem;
+  }
+
+  .user-auth-container button {
+    color: var(--primary-color);
+  }
+}
+
+/* ======Media query for Navbar ends ====== */
+
+/* =====HERO==STARTS=== */
+
+.hero-section .section-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 10px;
+}
+
+.hero-section .hero-content-wrapper {
+  text-align: center;
+}
+
+.hero-section .intro {
+  max-width: 70vw;
+  line-height: 1.5rem;
+}
+
+.hero-section button {
+  display: block;
+  margin: 1rem auto;
+}
+
+/* ====Hero Media query starts ============ */
+
+@media screen and (min-width: 800px) {
+  .hero-section .section-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .hero-section .hero-content-wrapper {
+    text-align: left;
+  }
+
+  .hero-section .intro {
+    max-width: 50vw;
+    line-height: 1.5rem;
+  }
+
+  .hero-section button {
+    display: flex;
+    margin: 1rem auto;
+  }
 }
 
 .nav-buttons-container {
