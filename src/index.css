@@ -717,10 +717,25 @@ textarea {
 
 /* LOTTIE ANIMATION */
 
+.animation-container {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
 .lottie-animation {
   width: 200px;
   height: 300px;
   margin-bottom: 1.5rem;
+}
+
+.payment-notificaiton-content-wrapper {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
 }
 
 .footer {
