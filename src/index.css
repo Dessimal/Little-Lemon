@@ -741,6 +741,13 @@ textarea {
   margin: 1.5rem 0;
 }
 
+.payment-notificaiton-content-wrapper h3 {
+  text-align: center;
+}
+.payment-notificaiton-content-wrapper p {
+  text-align: center;
+}
+
 .footer {
   margin-top: 4rem;
   padding: 2rem;
