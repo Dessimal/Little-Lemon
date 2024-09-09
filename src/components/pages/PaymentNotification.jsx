@@ -8,15 +8,17 @@ const PaymentNotification = () => {
   const navigate = useNavigate();
   return (
     <section>
-      <div className="payment notificaiton section-container">
+      <div className="payment-notificaiton section-container">
         <div className="animation-container">
           <Lottie className="lottie-animation" animationData={dancing} />
         </div>
-        <h3>Success!</h3>
-        <p>
-          Your table has been booked! Please click the button below to return to
-          Homepage
-        </p>
+        <div className="content-wrapper">
+          <h3>Success!</h3>
+          <p>
+            Your table has been booked! Please click the button below to return
+            to Homepage
+          </p>
+        </div>
         <Button onClick={() => navigate("/")}>Okay, Cool!</Button>
       </div>
     </section>
