@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Markazi+Text:wght@400..700&display=swap");
 :root {
   --primary-color: #495e57;
   --accent-color: #f4ce14;
@@ -14,7 +13,7 @@
   --xl-line-height: 1.75rem;
   --font-family-primary: "Karla", sans-serif;
   --spacing: 0.25rem;
-  --font-family-secondary: "Markazi", sans-serif;
+  --font-family-secondary: "Markaz Text", sans-serif;
   --sm-shadow: 0 1px 3px 0 rgb(0 0 0) / 0.1, 0 1px 2px -1px rgb(0 0 0/0.1);
   --xl-shadow: 0 20px 25px -5px rgb(0 0 0/0.1), 0 8px 10px -6px rgb(0 0 0/0.1);
   --transition: all 0.3s linear;
