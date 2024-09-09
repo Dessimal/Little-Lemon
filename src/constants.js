@@ -1,13 +1,14 @@
 import menu from "./assets/bars-solid.svg";
 import closeMenu from "./assets/close.svg";
-import foodOne from "./assets/little-lemon-food-1.jpg";
-import foodTwo from "./assets/little-lemon-food-2.jpg";
-import foodThree from "./assets/little-lemon-food-3.jpg";
-import foodFour from "./assets/little-lemon-food-4.jpg";
+import foodOne from "./assets/food1.jpg";
+import foodTwo from "./assets/food2.jpg";
+import foodThree from "./assets/food3.jpg";
+import foodFour from "./assets/food4.jpg";
+import heroImage from "./assests/heroimg.jpg";
 import logo from "./assets/little-lemon-logo.png";
 import dancing from "./assets/dancing.json";
 
-export { menu, closeMenu, foodFour, logo, dancing };
+export { menu, closeMenu, foodFour, heroImage, logo, dancing };
 
 export const meals = [
   {
