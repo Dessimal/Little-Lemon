@@ -195,10 +195,12 @@ section {
   .hero-section .section-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .hero-content-wrapper {
     text-align: left;
+    margin: auto 0;
   }
   .hero-section h1 {
     font-size: 3rem;
@@ -277,7 +279,7 @@ section {
 
 .section-heading {
   text-align: center;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   font-size: var(--xl-font-size);
   margin-bottom: 3rem;
 }
@@ -293,7 +295,7 @@ section {
 .main-section > * {
   max-width: var(--max-width);
   /* margin: 0 auto; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .main-section form {
@@ -523,7 +525,7 @@ textarea {
   top: 100%;
   left: 0;
   display: none;
-  background-color: black;
+  background-color: #333333;
   opacity: 0.9;
 
   gap: 0.5rem;
@@ -606,7 +608,7 @@ textarea {
 
     padding: 0;
     height: 100%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
   }
 
   .navLinks {

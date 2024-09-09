@@ -4,11 +4,10 @@ import foodOne from "./assets/food1.jpg";
 import foodTwo from "./assets/food2.jpg";
 import foodThree from "./assets/food3.jpg";
 import foodFour from "./assets/food4.jpg";
-import heroImage from "./assests/heroimg.jpg";
 import logo from "./assets/little-lemon-logo.png";
 import dancing from "./assets/dancing.json";
 
-export { menu, closeMenu, foodFour, heroImage, logo, dancing };
+export { menu, closeMenu, foodOne, foodTwo, foodFour, logo, dancing };
 
 export const meals = [
   {

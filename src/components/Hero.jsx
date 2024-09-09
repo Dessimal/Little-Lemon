@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-import { foodFour } from "../constants";
+import { foodTwo } from "../constants";
 import { FaLocationArrow } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const Hero = () => {
           </Button>
         </div>
         <div className="hero-image-container">
-          <img src={foodFour} alt="picture of food" />
+          <img src={foodTwo} alt="picture of food" />
         </div>
       </div>
     </section>
