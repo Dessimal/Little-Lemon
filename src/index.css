@@ -727,13 +727,14 @@ textarea {
 .lottie-animation {
   width: 200px;
   height: 300px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .payment-notificaiton-content-wrapper {
   width: 100%;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 1.5rem 0;
 }
