@@ -16,7 +16,7 @@ const MainReservationForm = () => {
     request: "",
   });
 
-  const [amount, setAmount] = useState(500000);
+  const [amount, setAmount] = useState(0);
   const { user } = useKindeAuth();
   const navigate = useNavigate();
 
@@ -56,11 +56,11 @@ const MainReservationForm = () => {
     if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
     }
+    setAmount(calculateAmount(500000, reservation.diners));
   };
 
-  const handleCalculateAmount = (amount) => {
-    setAmount(calculateAmount(amount, reservation.diners));
-  };
+  // const handleCalculateAmount = () => {
+  // };
 
   const handlePrevious = () => {
     if (currentStep > 1) {
@@ -84,7 +84,6 @@ const MainReservationForm = () => {
         return (
           <Step3
             handlePrevious={handlePrevious}
-            handleCalculateAmount={handleCalculateAmount}
             // handleNext={(values) => handleNext({ request: values.request })}
             handleNext={handleNext}
           />
