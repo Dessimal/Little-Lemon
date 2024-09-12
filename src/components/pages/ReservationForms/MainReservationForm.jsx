@@ -56,7 +56,10 @@ const MainReservationForm = () => {
     if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
     }
-    setAmount(calculateAmount(amount * reservation.diners));
+  };
+
+  const handleCalculateAmount = (amount) => {
+    setAmount(calculateAmount(amount, reservation.diners));
   };
 
   const handlePrevious = () => {
@@ -81,6 +84,7 @@ const MainReservationForm = () => {
         return (
           <Step3
             handlePrevious={handlePrevious}
+            handleCalculateAmount={handleCalculateAmount}
             handleNext={(values) => handleNext({ request: values.request })}
           />
         );

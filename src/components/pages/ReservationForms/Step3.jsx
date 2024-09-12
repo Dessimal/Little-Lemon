@@ -4,7 +4,12 @@ import { Formik, Field, Form } from "formik";
 import Button from "../../Button";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const Step3 = ({ handlePrevious, handleNext }) => {
+const Step3 = ({ handlePrevious, handleCalculateAmount, handleNext }) => {
+  const handleCalculateAndNext = (handleNext, handleCalculateAmount) => {
+    handleCalculateAmount();
+    handleNext();
+  };
+
   return (
     <section className="section-container">
       <Heading>Special Requests</Heading>
@@ -29,7 +34,7 @@ const Step3 = ({ handlePrevious, handleNext }) => {
               <FaArrowLeft className="icon-left" />
               <span>Back</span>
             </Button>
-            <Button type="submit">
+            <Button onClick={handleCalculateAndNext}>
               <span>Next</span>
               <FaArrowRight className="icon" />
             </Button>
