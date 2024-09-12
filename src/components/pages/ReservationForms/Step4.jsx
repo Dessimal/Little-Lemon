@@ -1,15 +1,18 @@
 import React from "react";
 import Heading from "../../Heading";
 import Button from "../../Button";
-import { FaArrowLeft, FaArrowRight, FaLocationArrow } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { calculateAmount } from "../../../helpers/calculation";
-import { useNavigate } from "react-router-dom";
 import { PaystackButton } from "react-paystack";
 
-const Step4 = ({ amount, reservation, handlePrevious, handleNext }) => {
+const Step4 = ({
+  amount,
+  reservation,
+  handlePrevious,
+  handleNext,
+  componentProps,
+}) => {
   const amountToPay = calculateAmount(amount, reservation.diners);
-
-  const navigate = useNavigate();
 
   return (
     <section className="section-container">
