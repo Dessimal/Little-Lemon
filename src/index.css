@@ -792,7 +792,8 @@ textarea {
   margin: 2rem 0;
 }
 
-.order-summary-container {
+.order-details-container {
   display: grid;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }

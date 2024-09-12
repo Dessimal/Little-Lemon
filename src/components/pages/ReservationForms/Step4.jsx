@@ -12,21 +12,23 @@ const Step4 = ({
   handleNext,
   componentProps,
 }) => {
-  const amountToPay = calculateAmount(amount, reservation.diners);
+  // const amountToPay = calculateAmount(amount, reservation.diners);
 
   return (
     <section className="section-container">
       <Heading>Your Payment Details</Heading>
 
-      <p>
-        <strong>Number of diners selected:</strong> {reservation.diners}
-      </p>
-      <p>
-        <strong>Amount per diner:</strong> N5000
-      </p>
-      <p>
-        <strong>Amount to pay:</strong> N{amountToPay}
-      </p>
+      <div className="order-details-container">
+        <p>
+          <strong>Number of diners selected:</strong> {reservation.diners}
+        </p>
+        <p>
+          <strong>Amount per diner:</strong> N5000
+        </p>
+        <p>
+          <strong>Amount to pay:</strong> N{amount}
+        </p>
+      </div>
 
       <div className="nav-buttons-container">
         <Button onClick={handlePrevious}>
