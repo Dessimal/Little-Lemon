@@ -77,7 +77,11 @@ const Nav = () => {
             )}
             {!isLoading && isAuthenticated && (
               <div className="user-auth-container">
-                <img className="user-avatar" src={user?.avatar} alt="user" />
+                <img
+                  className="user-avatar desktop-nav"
+                  src={user?.picture}
+                  alt="user"
+                />
                 <button
                   className="auth-button"
                   type="button"
@@ -90,6 +94,11 @@ const Nav = () => {
             )}
           </div>
         </div>
+        {!isLoading && isAuthenticated && (
+          <div className="user-auth-container mobile-nav">
+            <img className="user-avatar" src={user?.picture} alt="user" />
+          </div>
+        )}
         <button onClick={() => handleShowMenu()} className="menuButton">
           <img src={showMenu ? closeMenu : menu} alt="menu" />
         </button>

@@ -4,9 +4,10 @@ import Button from "../../Button";
 import { FaArrowLeft, FaArrowRight, FaLocationArrow } from "react-icons/fa";
 import { calculateAmount } from "../../../helpers/calculation";
 import { useNavigate } from "react-router-dom";
+import { PaystackButton } from "react-paystack";
 
-const Step4 = ({ reservation, handlePrevious, handleNext }) => {
-  const amountToPay = calculateAmount(reservation.diners);
+const Step4 = ({ amount, reservation, handlePrevious, handleNext }) => {
+  const amountToPay = calculateAmount(amount, reservation.diners);
 
   const navigate = useNavigate();
 
@@ -29,10 +30,8 @@ const Step4 = ({ reservation, handlePrevious, handleNext }) => {
           <FaArrowLeft className="icon-left" />
           <span>Go Back</span>
         </Button>
-        <Button onClick={handleNext}>
-          <span>Next</span>
-          <FaArrowRight className="icon" />
-        </Button>
+
+        <PaystackButton className="button" {...componentProps} />
       </div>
     </section>
   );

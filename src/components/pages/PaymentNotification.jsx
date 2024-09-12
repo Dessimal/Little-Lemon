@@ -13,7 +13,7 @@ const PaymentNotification = () => {
           <Lottie className="lottie-animation" animationData={dancing} />
         </div>
         <div className="content-wrapper">
-          <h3>Success!</h3>
+          <h2>Success!</h2>
           <p>
             Your table has been booked! Please click the button below to return
             to Homepage

@@ -526,6 +526,8 @@ textarea {
   display: none;
   background-color: #333333;
   opacity: 0.9;
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
 
   gap: 0.5rem;
   padding: 2rem;
@@ -565,13 +567,19 @@ textarea {
 
 .auth-button {
   background-color: transparent;
-  border: transparent;
-  color: var(--primary-color);
+  border: 1px solid white;
   font-weight: bold;
+  border-radius: 16px;
   cursor: pointer;
 }
 
 .user-auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.user-auth-container.mobile-nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -589,6 +597,10 @@ textarea {
   height: 50px;
 }
 
+.user-avatar.desktop-nav {
+  display: hidden;
+}
+
 /* ======Media query for Navbar starts ====== */
 
 @media screen and (min-width: 800px) {
@@ -604,6 +616,8 @@ textarea {
     justify-content: center;
     align-items: center;
     background-color: white;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 
     padding: 0;
     height: 100%;
@@ -655,6 +669,13 @@ textarea {
 
   .user-auth-container button {
     color: var(--primary-color);
+  }
+  .user-auth-container.mobile-nav {
+    display: none;
+  }
+
+  .user-avatar.desktop-nav {
+    display: block;
   }
 }
 
@@ -714,6 +735,7 @@ textarea {
   gap: 1rem;
   /* border: 1px solid red; */
   width: 100%;
+  margin-top: 0.8rem;
 }
 
 /* LOTTIE ANIMATION */
@@ -764,4 +786,9 @@ textarea {
   display: flex;
   gap: 2rem;
   margin: 2rem 0;
+}
+
+.order-summary-container {
+  display: grid;
+  gap: 1rem;
 }

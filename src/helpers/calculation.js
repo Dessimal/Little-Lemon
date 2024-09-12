@@ -1,4 +1,3 @@
-export const calculateAmount = (noOfdiners) => {
-  const pricePerDiner = 5000;
-  return noOfdiners * pricePerDiner;
+export const calculateAmount = (amount, noOfdiners) => {
+  return noOfdiners * amount;
 };

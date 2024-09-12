@@ -50,10 +50,10 @@ const MainReservationForm = () => {
 
   const handleNext = (values) => {
     setReservation((prev) => ({ ...prev, ...values }));
-    if (currentStep < 5) {
+    if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
     }
-    setAmount(calculateAmount(reservation.diners));
+    setAmount(calculateAmount(amount * reservation.diners));
   };
 
   const handlePrevious = () => {
@@ -87,16 +87,11 @@ const MainReservationForm = () => {
             reservation={reservation}
             handlePrevious={handlePrevious}
             handleNext={handleNext}
-          />
-        );
-      case 5:
-        return (
-          <Step5
-            reservation={reservation}
-            handlePrevious={handlePrevious}
+            amount={amount}
             componentProps={componentProps}
           />
         );
+
       default:
         return null;
     }
