@@ -582,8 +582,8 @@ textarea {
 .user-auth-container.mobile-nav {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-auth-container button {
