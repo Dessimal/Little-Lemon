@@ -592,13 +592,13 @@ textarea {
 
 .user-avatar {
   border-radius: 50%;
-  border: 1px solid var(--accent-color);
-  width: 50px;
+  border: 1px solid var(--primary-color);
+  width: 0px;
   height: 50px;
 }
 
 .user-avatar.desktop-nav {
-  display: hidden;
+  display: none;
 }
 
 /* ======Media query for Navbar starts ====== */

@@ -4,7 +4,7 @@ import MultiStepBar from "./MultiStepBar";
 import { useNavigate } from "react-router-dom";
 import { calculateAmount } from "../../../helpers/calculation";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import Step5 from "./Step5";
+import toast, { Toaster } from "react-hot-toast";
 
 const MainReservationForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -36,12 +36,15 @@ const MainReservationForm = () => {
     publicKey,
     text: "Proceed with Payment",
     onSuccess: ({ reference }) => {
-      alert(
+      // alert(
+      //   `Your purchase was successful! Transaction reference: ${reference}`
+      // );
+      toast(
         `Your purchase was successful! Transaction reference: ${reference}`
       );
       navigate("/confirmation");
     },
-    onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+    onClose: () => alert("Sure you want to cancel this transaction?"),
   };
 
   // const handleDinersCharge = () => {
@@ -100,6 +103,7 @@ const MainReservationForm = () => {
   return (
     <section className="section">
       <div>
+        <Toaster />
         <MultiStepBar
           currentStep={currentStep}
           setCurrentStep={setCurrentStep}

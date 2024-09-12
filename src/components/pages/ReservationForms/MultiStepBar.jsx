@@ -3,13 +3,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const MultiStepBar = ({ currentStep, setCurrentStep }) => {
-  const steps = [
-    "Date Selection",
-    "Summary",
-    "Request",
-    "summary",
-    "Payment Page",
-  ];
+  const steps = ["Date Selection", "Summary", "Request", "Your Order Details"];
 
   const navigate = useNavigate();
 

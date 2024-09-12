@@ -52,7 +52,7 @@ const Step1 = ({ handleNext }) => {
             }}
             validationSchema={SignupSchema}
             onSubmit={(values) => {
-              alert(JSON.stringify(values, null, 2));
+              // alert(JSON.stringify(values, null, 2));
               console.log(values);
               handleNext(values);
             }}>
