@@ -4,7 +4,8 @@ import MultiStepBar from "./MultiStepBar";
 import { useNavigate } from "react-router-dom";
 import { calculateAmount } from "../../../helpers/calculation";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import toast, { Toaster } from "react-hot-toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MainReservationForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -28,7 +29,7 @@ const MainReservationForm = () => {
 
   const componentProps = {
     email,
-    amount,
+    amount: amount * 100,
     metadata: {
       name,
       phone,
@@ -56,7 +57,7 @@ const MainReservationForm = () => {
     if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
     }
-    setAmount(calculateAmount(500000, reservation.diners));
+    setAmount(calculateAmount(5000, reservation.diners));
   };
 
   // const handleCalculateAmount = () => {
@@ -107,7 +108,7 @@ const MainReservationForm = () => {
   return (
     <section className="section">
       <div>
-        <Toaster />
+        <ToastContainer />
         <MultiStepBar
           currentStep={currentStep}
           setCurrentStep={setCurrentStep}
