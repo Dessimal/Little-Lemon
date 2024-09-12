@@ -58,7 +58,7 @@ const Nav = () => {
                 </Link>
               </li>
             </ul>
-            {isLoading && <div>...Loading user details</div>}
+            {isLoading && <div>...Loading your details</div>}
             {!isLoading && !isAuthenticated && (
               <div className="user-auth-container">
                 <button
@@ -68,7 +68,7 @@ const Nav = () => {
                   Sign In
                 </button>
                 <button
-                  className="auth-button"
+                  className="auth-button white-button"
                   type="button"
                   onClick={() => register()}>
                   Sign Up
@@ -94,6 +94,9 @@ const Nav = () => {
             )}
           </div>
         </div>
+        {isLoading && (
+          <div className="for-mobile-nav">...Loading your details</div>
+        )}
         {!isLoading && isAuthenticated && (
           <div className="user-auth-container mobile-nav">
             <img className="user-avatar" src={user?.picture} alt="user" />

@@ -34,7 +34,7 @@ const Step3 = ({ handlePrevious, handleCalculateAmount, handleNext }) => {
               <FaArrowLeft className="icon-left" />
               <span>Back</span>
             </Button>
-            <Button onClick={handleCalculateAndNext}>
+            <Button onClick={() => handleCalculateAndNext()}>
               <span>Next</span>
               <FaArrowRight className="icon" />
             </Button>

@@ -85,7 +85,8 @@ const MainReservationForm = () => {
           <Step3
             handlePrevious={handlePrevious}
             handleCalculateAmount={handleCalculateAmount}
-            handleNext={(values) => handleNext({ request: values.request })}
+            // handleNext={(values) => handleNext({ request: values.request })}
+            handleNext={handleNext}
           />
         );
       case 4:

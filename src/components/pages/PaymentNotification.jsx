@@ -7,8 +7,8 @@ import { dancing } from "../../constants";
 const PaymentNotification = () => {
   const navigate = useNavigate();
   return (
-    <section>
-      <div className="payment-notificaiton section-container">
+    <section className="payment-notificaiton-section">
+      <div className="payment-notificaiton ">
         <div className="animation-container">
           <Lottie className="lottie-animation" animationData={dancing} />
         </div>
