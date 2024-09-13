@@ -1,9 +1,7 @@
-import React from "react";
-
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import Button from "../../Button";
 import Heading from "../../Heading";
-import { FaAddressCard, FaRegistered, FaSignInAlt } from "react-icons/fa";
+import { FaAddressCard, FaSignInAlt } from "react-icons/fa";
 
 const Auth = () => {
   const { login, register } = useKindeAuth();

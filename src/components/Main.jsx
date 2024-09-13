@@ -1,5 +1,3 @@
-import React from "react";
-import Hero from "./Hero";
 import { meals } from "../constants";
 import Card from "./Card";
 import Button from "./Button";
@@ -9,7 +7,7 @@ const Main = () => {
     <section className="features-section">
       <div className="section-container">
         <div className="features-section-heading">
-          <h3>This Week's Specials</h3>
+          <h3>This Week&apos;s Specials</h3>
           <Button>Online Menu</Button>
         </div>
         <div className="card-wrapper-container">

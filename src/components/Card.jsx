@@ -5,7 +5,7 @@ const Card = ({ className, picture, title, price, text }) => {
   return (
     <article className={className}>
       <div className="card-image-container">
-        <img src={picture} alt="" />
+        <img src={picture} alt={title} />
       </div>
       <div className="card-content-wrapper">
         <div className="card-heading">

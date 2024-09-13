@@ -15,8 +15,8 @@ const PaymentNotification = () => {
         <div className="content-wrapper">
           <h2>Success!</h2>
           <p>
-            Your table has been booked! Please click the button below to return
-            to Homepage
+            Your table has been reserved! Please click the button below to
+            return to Homepage
           </p>
         </div>
         <Button onClick={() => navigate("/")}>Okay, Cool!</Button>
