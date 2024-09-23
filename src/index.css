@@ -597,6 +597,8 @@ textarea {
   font-weight: bold;
   border-radius: 16px;
   cursor: pointer;
+  max-width: 4rem;
+  padding: 2px 4px;
 }
 
 .user-auth-container {
