@@ -598,7 +598,7 @@ textarea {
   border-radius: 16px;
   cursor: pointer;
   max-width: 4rem;
-  padding: 2px 4px;
+  padding: 2px 1.5rem;
 }
 
 .user-auth-container {
@@ -606,6 +606,8 @@ textarea {
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
+  width: 100%;
+  align-items: center;
 }
 .user-auth-container.mobile-nav {
   display: flex;
