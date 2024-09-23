@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "./Button";
 import { foodTwo } from "../constants";
 import { FaLocationArrow } from "react-icons/fa";

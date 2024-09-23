@@ -265,9 +265,22 @@ section {
 }
 
 .card-content-wrapper {
-  display: grid;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   padding: 1rem;
+  gap: 2rem;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card-content-wrapper button {
+  justify-self: flex-end;
 }
 
 .card-heading {
@@ -402,7 +415,10 @@ textarea {
   text-transform: capitalize;
   transition: all 0.3s linear;
   display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: var(--sm-shadow);
+  text-align: center;
 }
 
 .white-button {

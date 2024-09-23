@@ -3,19 +3,20 @@ import Button from "./Button";
 
 const Card = ({ className, picture, title, price, text }) => {
   return (
-    <article className={className}>
+    <article className={`card ${className}`}>
       <div className="card-image-container">
         <img src={picture} alt={title} />
       </div>
       <div className="card-content-wrapper">
-        <div className="card-heading">
-          <span>{title}</span>
-          <span>{price}</span>
+        <div className="card-text">
+          <div className="card-heading">
+            <span>{title}</span>
+            <span>{price}</span>
+          </div>
+          <div>
+            <p>{text}</p>
+          </div>
         </div>
-        <div>
-          <p>{text}</p>
-        </div>
-
         <Button>Order a Delivery</Button>
       </div>
     </article>

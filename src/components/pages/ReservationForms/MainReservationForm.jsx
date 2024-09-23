@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Step1, Step2, Step3, Step4 } from "./index";
 import MultiStepBar from "./MultiStepBar";
 import { useNavigate } from "react-router-dom";
