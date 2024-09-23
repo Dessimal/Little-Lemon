@@ -553,7 +553,7 @@ textarea {
   background-color: #333333;
   opacity: 0.9;
 
-  gap: 0.5rem;
+  gap: 1rem;
   padding: 2rem;
 }
 
@@ -595,7 +595,7 @@ textarea {
   font-weight: bold;
   border-radius: 16px;
   cursor: pointer;
-  max-width: 4rem;
+  max-width: 6rem;
   padding: 2px 1.5rem;
 }
 
