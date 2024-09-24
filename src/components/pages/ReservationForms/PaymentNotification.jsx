@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../Button";
 import { useNavigate } from "react-router-dom";
+import Button from "../../Button";
 import Lottie, { LottiePlayer } from "lottie-react";
-import { dancing } from "../../constants";
+import { dancing } from "../../../constants";
 
 const PaymentNotification = () => {
   const navigate = useNavigate();

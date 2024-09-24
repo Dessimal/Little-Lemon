@@ -1,10 +1,11 @@
+import React from "react";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer";
 import "./index.css";
 import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 import { Routes, Route } from "react-router-dom";
 import { Home, About, Blog } from "./components/pages/index.js";
-import PaymentNotification from "./components/pages/PaymentNotification.jsx";
+import PaymentNotification from "./components/pages/ReservationForms/PaymentNotification.jsx";
 import ProtectedRoute from "./components/pages/ProtectedRoute.jsx";
 import MainReservationForm from "./components/pages/ReservationForms/MainReservationForm.jsx";
 import Auth from "./components/pages/auth/Auth.jsx";
